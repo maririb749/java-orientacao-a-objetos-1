@@ -8,26 +8,29 @@ import java.util.Date;
 
 public class Manipulando_datas_com_calendar {
 
-	public static void main(String[] args) throws ParseException{
-		
-		
-		
+	public static void main(String[] args) throws ParseException {
+
+		// Obtendo uma unidade de tempo
+
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-		
+
 		Date d = Date.from(Instant.parse("2018-06-25T15:42:07Z"));
-		
+
 		System.out.println(sdf.format(d));
+
 		
-		//acrescentando 4 horas na data acima;
+		//Saber quantos minutos tem na representação da data acima;
 		
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(d);
-		cal.add(Calendar.HOUR_OF_DAY, 4);
+		int minutes = cal.get(Calendar.MINUTE);
+
+		// saber o mês;
 		
-		d = cal.getTime();
+		int month = 1 + cal.get(Calendar.MONTH);
 		
-		System.out.println(sdf.format(d));
-		
+		System.out.println("Minutes: " + minutes);
+		System.out.println("Month: " + month);
 
 	}
 
